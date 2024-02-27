@@ -31,6 +31,9 @@
       "@components/*": [
         "components/*"
       ],
+      "@handlers/*": [
+        "handlers/*"
+      ],
     }
   },
   "include": [
