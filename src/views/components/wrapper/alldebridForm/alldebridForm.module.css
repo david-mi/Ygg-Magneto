@@ -1,0 +1,35 @@
+.alldebridForm {
+  display: flex;
+  border: solid 3px var(--color-main);
+  height: 30px;
+  border-radius: 50px;
+
+  & input {
+    &[type="text"] {
+      width: 180px;
+      background-color: var(--color-main-light);
+      padding-inline: var(--spacing);
+      border-top-left-radius: 50px;
+      border-bottom-left-radius: 50px;
+    }
+
+    &::placeholder {
+      opacity: 0.5;
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    &[type="submit"] {
+      font-weight: bold;
+      transition: 300ms;
+      padding-inline: var(--spacing);
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+
+      &:hover {
+        background-color: var(--color-main);
+        color: var(--color-second);
+      }
+    }
+  }
+}

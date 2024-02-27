@@ -4,10 +4,11 @@ import { magnetAnchor } from "./views/components/wrapper/magnetAnchor/magnetAnch
 import { insertMagnetAnchor } from "./views/helpers/insertMagnetAnchor";
 import { insertWrapper } from "@views/helpers/insertWrapper";
 import { wrapper } from "@views/components/wrapper/wrapper";
+import { alldebridForm } from "@views/components/wrapper/alldebridForm/alldebridForm";
 
 (async function init() {
   insertWrapper(wrapper)
-  wrapper.append(magnetAnchor)
+  wrapper.append(alldebridForm)
 
   displayConsoleColoredMessage(`Script loaded (v${GM_info.script.version})`, "#db8d45")
 })();

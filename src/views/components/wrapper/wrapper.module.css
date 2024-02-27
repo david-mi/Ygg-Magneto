@@ -1,6 +1,8 @@
 .wrapper {
   --color-main: #fac333;
+  --color-main-light: rgb(255, 247, 228);
   --color-second: white;
+  --spacing: 10px;
   display: inline-flex;
   margin-left: 1rem;
 }
