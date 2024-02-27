@@ -1,6 +1,4 @@
 .anchor {
-  --color-main: #fac333;
-  --color-second: white;
   color: var(--color-main) !important;
   border-color: var(--color-main) !important;
   display: inline-flex;

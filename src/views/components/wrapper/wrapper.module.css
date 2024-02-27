@@ -1,4 +1,6 @@
 .wrapper {
+  --color-main: #fac333;
+  --color-second: white;
   display: inline-flex;
   margin-left: 1rem;
 }
