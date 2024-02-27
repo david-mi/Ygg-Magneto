@@ -1,8 +1,16 @@
 import { defineConfig } from 'vite';
 import monkey from 'vite-plugin-monkey';
+import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src'),
+      '@views': resolve(__dirname, './src/views'),
+      '@components': resolve(__dirname, './src/views/components'),
+    },
+  },
   plugins: [
     monkey({
       entry: 'src/main.ts',
