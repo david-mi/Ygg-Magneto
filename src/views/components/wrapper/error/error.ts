@@ -1,4 +1,5 @@
 import alldebridFavicon from "/alldebrid_favicon.png"
+import { retryButton } from "./retryButton/retryButton"
 import styles from "./error.module.css"
 
 export const errorElement = document.createElement("span")
@@ -12,7 +13,7 @@ alldebridLogo.src = alldebridFavicon
 const externalLinkIcon = document.createElement("span")
 externalLinkIcon.classList.add("ico_warning")
 
-errorElement.append(alldebridLogo, errorTextElement, externalLinkIcon)
+errorElement.append(alldebridLogo, errorTextElement, externalLinkIcon, retryButton)
 
 export function setError(errorMessage: string) {
   errorTextElement.textContent = errorMessage

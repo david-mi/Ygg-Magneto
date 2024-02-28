@@ -1,0 +1,20 @@
+.retryButton:global(#retry) {
+  cursor: pointer !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px !important;
+  padding: 0px !important;
+  border-radius: 50px;
+  aspect-ratio: 1/1;
+  margin: 0 !important;
+  transition: 300ms;
+  padding-inline: var(--spacing);
+  border-radius: 50px;
+  background-color: black !important;
+
+  &:hover {
+    background-color: var(--color-main) !important;
+    color: black !important;
+  }
+}

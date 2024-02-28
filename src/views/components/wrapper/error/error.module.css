@@ -14,4 +14,8 @@
   span::before {
     font-size: 1rem;
   }
+
+  span:last-child:before {
+    font-size: 0.8rem;
+  }
 }
