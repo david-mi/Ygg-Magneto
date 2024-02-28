@@ -11,7 +11,7 @@ interface AlldebridUploadResponseData {
 }
 
 export async function getMagnetId(): Promise<string> {
-  const alldebridUploadUrl = getAlldebridRequestUrl()
+  const alldebridUploadUrl = getAlldebridRequestUrl().upload()
 
   const response = await fetch(alldebridUploadUrl)
   const { data }: AlldebridUploadResponseData = await response.json()

@@ -13,7 +13,7 @@ interface AlldebridStatusResponseData {
 }
 
 export async function getUnlockedUrl(magnetId: string): Promise<string> {
-  const alldebridStatusUrl = getAlldebridRequestUrl({ magnetId })
+  const alldebridStatusUrl = getAlldebridRequestUrl().status(magnetId)
 
   const response = await fetch(alldebridStatusUrl)
   const { data }: AlldebridStatusResponseData = await response.json()
