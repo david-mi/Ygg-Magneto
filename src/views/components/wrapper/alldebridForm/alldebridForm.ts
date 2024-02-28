@@ -13,12 +13,12 @@ submitButton.value = "Envoyer"
 
 alldebridForm.append(alldebridFormInput, submitButton)
 
-export function setError(errorMessage: string) {
+export function setFormError(errorMessage: string) {
   alldebridFormInput.classList.add(styles.error)
   alldebridFormInput.placeholder = "Erreur : " + errorMessage
 }
 
-export function removeError() {
+export function removeFormError() {
   alldebridFormInput.classList.remove(styles.error)
   alldebridFormInput.placeholder = "Votre clé API Alldebrid..."
 }

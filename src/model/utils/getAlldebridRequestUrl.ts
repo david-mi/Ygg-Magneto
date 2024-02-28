@@ -1,7 +1,7 @@
 import { Store } from "@model/store"
 
 export function getAlldebridRequestUrl() {
-  const alldebridRequestUrl = new URL(Store.ALLDEBRID_MAGNET_URL)
+  const alldebridRequestUrl = new URL(Store.ALLDEBRID_MAGNET_API_URL)
 
   alldebridRequestUrl.searchParams.set("agent", "yggAgent")
   alldebridRequestUrl.searchParams.set("apikey", Store.ALLDEBRID_API_KEY as string)

@@ -1,25 +1,28 @@
 import { wrapper } from "./components/wrapper/wrapper"
-import { alldebridForm, removeError, setError } from "./components/wrapper/alldebridForm/alldebridForm"
-import { magnetAnchor } from "./components/wrapper/magnetAnchor/magnetAnchor"
+import { alldebridForm, removeFormError, setFormError } from "./components/wrapper/alldebridForm/alldebridForm"
+import { availableLinkElement } from "./components/wrapper/availableLink/availableLink"
+import { processingLinkElement } from "./components/wrapper/processingLink/processingLink"
 import { loader } from "./components/wrapper/loader/loader"
+import { Store } from "@model/store"
 
 export const onViewChange = {
   form(errorMessage?: string) {
-    // modifs
     if (errorMessage) {
-      setError(errorMessage)
+      setFormError(errorMessage)
     } else {
-      removeError()
+      removeFormError()
     }
     wrapper.replaceChildren(alldebridForm)
   },
-  anchor(href: string) {
-    // modifs
-    magnetAnchor.href = href
-    wrapper.replaceChildren(magnetAnchor)
+  available(href: string) {
+    availableLinkElement.href = href
+    wrapper.replaceChildren(availableLinkElement)
+  },
+  processing() {
+    processingLinkElement.href = Store.ALLDEBRID_MAGNET_URL
+    wrapper.replaceChildren(processingLinkElement)
   },
   pending() {
-    // modifs
     wrapper.replaceChildren(loader)
   }
 }

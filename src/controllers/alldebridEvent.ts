@@ -7,10 +7,10 @@ import { getDownloadLink } from "@model/getDownloadLink"
 import { onViewChange } from "@views/onViewChange"
 import { handleErrors } from "./errors"
 
-type AlldebridEventDetails = {
-  step: "PENDING" | "COMPLETE_FORM" | "DONE"
-  errorMessage?: string
-}
+type AlldebridEventDetails =
+  { step: "PENDING" | "DONE" } |
+  { step: "COMPLETE_FORM", errorMessage?: string } |
+  { step: "NOT_READY" }
 
 export function dispatchAlldebridEvent(detail: AlldebridEventDetails) {
   const alldebridEvent = new CustomEvent<AlldebridEventDetails>(ALLDEBRID_EVENT_NAME, { detail })
@@ -42,7 +42,7 @@ export async function handleAlldebridEvent(event: Event) {
         break;
       }
       case "DONE": {
-        onViewChange.anchor(Store.ALLDEBRID_DOWNLOAD_LINK)
+        onViewChange.available(Store.ALLDEBRID_DOWNLOAD_LINK)
       }
     }
   }
