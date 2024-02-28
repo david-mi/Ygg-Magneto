@@ -2,7 +2,7 @@ import { wrapper } from "@views/components/wrapper/wrapper"
 import { loader } from "@views/components/wrapper/loader/loader"
 import { alldebridForm } from "@views/components/wrapper/alldebridForm/alldebridForm"
 import { magnetAnchor } from "@views/components/wrapper/magnetAnchor/magnetAnchor"
-import { ALLDEBRID_EVENT_NAME } from "@model/constants"
+import { ALLDEBRID_EVENT_NAME, ERROR_MESSAGES } from "@model/constants"
 import { getUnlockedUrl } from "@model/getUnlockedUrl"
 import { getMagnetId } from "@model/getMagnetId"
 import { Store } from "@model/store"
@@ -38,7 +38,7 @@ export async function handleAlldebridEvent(event: Event) {
           if (error instanceof Error) {
             console.error(error)
             switch (error.message) {
-              case "Failed to construct 'URL': Invalid URL": {
+              case ERROR_MESSAGES.INVALID_TOKEN: {
                 console.log("Invalid Token")
                 dispatchAlldebridEvent("COMPLETE_FORM")
                 break
