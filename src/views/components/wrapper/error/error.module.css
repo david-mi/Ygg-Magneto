@@ -1,0 +1,13 @@
+.error {
+  color: red;
+  background-color: var(--color-main-light);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: calc(var(--spacing) / 2) var(--spacing);
+  font-weight: 500;
+
+  span::before {
+    font-size: 1rem;
+  }
+}

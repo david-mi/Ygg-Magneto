@@ -1,5 +1,6 @@
 import { ERROR_MESSAGES } from "@model/constants"
 import { dispatchAlldebridEvent } from "./alldebridEvent"
+import { onViewChange } from "@views/onViewChange"
 
 export function handleErrors(error: any) {
   if (error instanceof Error) {
@@ -14,7 +15,7 @@ export function handleErrors(error: any) {
         break
       }
       default: {
-        console.error(error)
+        onViewChange.error(error.message)
       }
     }
   }

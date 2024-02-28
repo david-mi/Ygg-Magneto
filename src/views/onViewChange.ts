@@ -3,6 +3,7 @@ import { alldebridForm, removeFormError, setFormError } from "./components/wrapp
 import { availableLinkElement } from "./components/wrapper/availableLink/availableLink"
 import { processingLinkElement } from "./components/wrapper/processingLink/processingLink"
 import { loader } from "./components/wrapper/loader/loader"
+import { errorElement, setError } from "./components/wrapper/error/error"
 
 export const onViewChange = {
   form(errorMessage?: string) {
@@ -23,5 +24,9 @@ export const onViewChange = {
   },
   pending() {
     wrapper.replaceChildren(loader)
+  },
+  error(errorMessage: string) {
+    setError(errorMessage)
+    wrapper.replaceChildren(errorElement)
   }
 }
