@@ -1,12 +1,11 @@
-import { wrapper } from "@views/components/wrapper/wrapper"
-import { loader } from "@views/components/wrapper/loader/loader"
-import { alldebridForm } from "@views/components/wrapper/alldebridForm/alldebridForm"
-import { magnetAnchor } from "@views/components/wrapper/magnetAnchor/magnetAnchor"
-import { ALLDEBRID_EVENT_NAME, ERROR_MESSAGES } from "@model/constants"
+
+import { ALLDEBRID_EVENT_NAME } from "@model/constants"
 import { getUnlockedUrl } from "@model/getUnlockedUrl"
 import { getMagnetId } from "@model/getMagnetId"
 import { Store } from "@model/store"
 import { getDownloadLink } from "@model/getDownloadLink"
+import { onViewChange } from "@views/onViewChange"
+import { handleErrors } from "./errors"
 
 type AlldebridEventDetails = "PENDING" | "COMPLETE_FORM" | "DONE"
 
@@ -22,11 +21,11 @@ export async function handleAlldebridEvent(event: Event) {
 
     switch (detail) {
       case "COMPLETE_FORM": {
-        wrapper.replaceChildren(alldebridForm)
+        onViewChange.form()
         break
       }
       case "PENDING": {
-        wrapper.replaceChildren(loader);
+        onViewChange.pending()
 
         try {
           const magnetId = await getMagnetId()
@@ -35,22 +34,12 @@ export async function handleAlldebridEvent(event: Event) {
 
           dispatchAlldebridEvent("DONE")
         } catch (error) {
-          if (error instanceof Error) {
-            console.error(error)
-            switch (error.message) {
-              case ERROR_MESSAGES.INVALID_TOKEN: {
-                console.log("Invalid Token")
-                dispatchAlldebridEvent("COMPLETE_FORM")
-                break
-              }
-            }
-          }
+          handleErrors(error)
         }
         break;
       }
       case "DONE": {
-        magnetAnchor.href = Store.ALLDEBRID_DOWNLOAD_LINK
-        wrapper.replaceChildren(magnetAnchor);
+        onViewChange.anchor(Store.ALLDEBRID_DOWNLOAD_LINK)
       }
     }
   }
