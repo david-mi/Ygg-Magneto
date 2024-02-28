@@ -1,4 +1,4 @@
-.unavailableLink {
+.processingLink {
   --color-main: #ef5f5f;
   color: var(--color-main) !important;
   border-color: var(--color-main) !important;

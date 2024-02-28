@@ -10,7 +10,7 @@ import { handleErrors } from "./errors"
 type AlldebridEventDetails =
   { step: "PENDING" | "AVAILABLE" } |
   { step: "COMPLETE_FORM", errorMessage?: string } |
-  { step: "UNAVAILABLE" }
+  { step: "PROCESSING" }
 
 export function dispatchAlldebridEvent(detail: AlldebridEventDetails) {
   const alldebridEvent = new CustomEvent<AlldebridEventDetails>(ALLDEBRID_EVENT_NAME, { detail })
@@ -45,8 +45,8 @@ export async function handleAlldebridEvent(event: Event) {
         onViewChange.available(Store.ALLDEBRID_DOWNLOAD_LINK)
         break;
       }
-      case "UNAVAILABLE": {
-        onViewChange.unavailable(Store.ALLDEBRID_MAGNET_URL)
+      case "PROCESSING": {
+        onViewChange.processing(Store.ALLDEBRID_MAGNET_URL)
       }
     }
   }

@@ -10,7 +10,7 @@ export function handleErrors(error: any) {
         break
       }
       case ERROR_MESSAGES.MAGNET_NOT_READY: {
-        dispatchAlldebridEvent({ step: "UNAVAILABLE" })
+        dispatchAlldebridEvent({ step: "PROCESSING" })
         break
       }
       default: {

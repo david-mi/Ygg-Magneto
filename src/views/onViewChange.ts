@@ -1,7 +1,7 @@
 import { wrapper } from "./components/wrapper/wrapper"
 import { alldebridForm, removeFormError, setFormError } from "./components/wrapper/alldebridForm/alldebridForm"
 import { availableLinkElement } from "./components/wrapper/availableLink/availableLink"
-import { unavailableLinkElement } from "./components/wrapper/unavailableLink/unavailableLink"
+import { processingLinkElement } from "./components/wrapper/processingLink/processingLink"
 import { loader } from "./components/wrapper/loader/loader"
 
 export const onViewChange = {
@@ -17,9 +17,9 @@ export const onViewChange = {
     availableLinkElement.href = href
     wrapper.replaceChildren(availableLinkElement)
   },
-  unavailable(href: string) {
-    unavailableLinkElement.href = href
-    wrapper.replaceChildren(unavailableLinkElement)
+  processing(href: string) {
+    processingLinkElement.href = href
+    wrapper.replaceChildren(processingLinkElement)
   },
   pending() {
     wrapper.replaceChildren(loader)
