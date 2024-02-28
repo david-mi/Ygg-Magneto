@@ -5,4 +5,5 @@
   --spacing: 10px;
   display: inline-flex;
   margin-left: 1rem;
+  margin-block: -15px;
 }

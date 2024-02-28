@@ -1,14 +1,22 @@
 .unavailableLink {
-  --color-main: red;
+  --color-main: #ef5f5f;
   color: var(--color-main) !important;
   border-color: var(--color-main) !important;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-block: -10px;
+  max-height: 30px;
 
   &:hover {
     background-color: var(--color-main) !important;
     color: var(--color-second) !important;
+  }
+
+  img {
+    height: 12px;
+  }
+
+  span::before {
+    font-size: 1rem;
   }
 }
