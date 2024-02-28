@@ -6,9 +6,10 @@ interface LinkLayoutProps {
   pulseAnimation: boolean,
   children?: HTMLElement,
   className?: string
+  newTab?: boolean
 }
 
-export function createLinkLayout({ text, children, pulseAnimation, className }: LinkLayoutProps) {
+export function createLinkLayout({ text, children, pulseAnimation, className, newTab = false }: LinkLayoutProps) {
   const linkLayout = document.createElement("a")
   linkLayout.textContent = text
   linkLayout.classList.add(
@@ -18,6 +19,9 @@ export function createLinkLayout({ text, children, pulseAnimation, className }: 
     ...className ? [className] : []
   );
 
+  if (newTab) {
+    linkLayout.setAttribute("target", "_blank")
+  }
 
   const alldebridLogo = document.createElement("img")
   alldebridLogo.src = alldebridFavicon

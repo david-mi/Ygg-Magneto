@@ -8,5 +8,6 @@ export const processingLinkElement = createLinkLayout({
   text: "Magnet en traitement",
   children: externalLinkIcon,
   className: styles.processingLink,
-  pulseAnimation: false
+  pulseAnimation: false,
+  newTab: true
 })
