@@ -8,9 +8,9 @@ import { onViewChange } from "@views/onViewChange"
 import { handleErrors } from "./errors"
 
 type AlldebridEventDetails =
-  { step: "PENDING" | "DONE" } |
+  { step: "PENDING" | "AVAILABLE" } |
   { step: "COMPLETE_FORM", errorMessage?: string } |
-  { step: "NOT_READY" }
+  { step: "UNAVAILABLE" }
 
 export function dispatchAlldebridEvent(detail: AlldebridEventDetails) {
   const alldebridEvent = new CustomEvent<AlldebridEventDetails>(ALLDEBRID_EVENT_NAME, { detail })
@@ -35,14 +35,18 @@ export async function handleAlldebridEvent(event: Event) {
           const unlockedUrl = await getUnlockedUrl(magnetId)
           Store.ALLDEBRID_DOWNLOAD_LINK = await getDownloadLink(unlockedUrl)
 
-          dispatchAlldebridEvent({ step: "DONE" })
+          dispatchAlldebridEvent({ step: "AVAILABLE" })
         } catch (error) {
           handleErrors(error)
         }
         break;
       }
-      case "DONE": {
+      case "AVAILABLE": {
         onViewChange.available(Store.ALLDEBRID_DOWNLOAD_LINK)
+        break;
+      }
+      case "UNAVAILABLE": {
+        onViewChange.unavailable(Store.ALLDEBRID_MAGNET_URL)
       }
     }
   }

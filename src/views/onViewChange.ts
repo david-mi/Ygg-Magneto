@@ -1,9 +1,8 @@
 import { wrapper } from "./components/wrapper/wrapper"
 import { alldebridForm, removeFormError, setFormError } from "./components/wrapper/alldebridForm/alldebridForm"
 import { availableLinkElement } from "./components/wrapper/availableLink/availableLink"
-import { processingLinkElement } from "./components/wrapper/processingLink/processingLink"
+import { unavailableLinkElement } from "./components/wrapper/unavailableLink/unavailableLink"
 import { loader } from "./components/wrapper/loader/loader"
-import { Store } from "@model/store"
 
 export const onViewChange = {
   form(errorMessage?: string) {
@@ -18,9 +17,9 @@ export const onViewChange = {
     availableLinkElement.href = href
     wrapper.replaceChildren(availableLinkElement)
   },
-  processing() {
-    processingLinkElement.href = Store.ALLDEBRID_MAGNET_URL
-    wrapper.replaceChildren(processingLinkElement)
+  unavailable(href: string) {
+    unavailableLinkElement.href = href
+    wrapper.replaceChildren(unavailableLinkElement)
   },
   pending() {
     wrapper.replaceChildren(loader)
