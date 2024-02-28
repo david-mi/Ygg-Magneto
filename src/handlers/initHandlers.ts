@@ -1,9 +1,10 @@
-import { Store } from "model/store";
+import { Store } from "@model/store";
+import { dispatchAlldebridEvent } from "./alldebridEvent";
 
 export function initHandlers() {
-  if (Store.ALLDEBRID_API_KEY !== null) {
-    // dispatch l'event pour afficher loader + récup lien de téléchargement
-  } else {
-    // dispatch l'event pour afficher le formulaire
-  }
+  dispatchAlldebridEvent(
+    Store.ALLDEBRID_API_KEY !== null
+      ? "PENDING"
+      : "COMPLETE_FORM"
+  )
 }
