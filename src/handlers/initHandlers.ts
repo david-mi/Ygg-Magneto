@@ -1,5 +1,6 @@
 import { Store } from "@model/store";
 import { dispatchAlldebridEvent } from "./alldebridEvent";
+import { getTorrentMagnet } from "@views/helpers/getTorrentMagnet";
 
 export function initHandlers() {
   dispatchAlldebridEvent(
@@ -7,4 +8,5 @@ export function initHandlers() {
       ? "PENDING"
       : "COMPLETE_FORM"
   )
+  Store.TORRENT_MAGNET = getTorrentMagnet()
 }

@@ -2,6 +2,7 @@ import { LOCAL_STORAGE_KEYS } from "./constants"
 
 export class Store {
   static ALLDEBRID_API_KEY: string | null
+  static TORRENT_MAGNET: string = ""
 
   static setApiKey(apiKey: string) {
     this.ALLDEBRID_API_KEY = apiKey
