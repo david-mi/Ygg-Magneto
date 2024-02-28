@@ -1,6 +1,6 @@
-import { handleAlldebridFormSubmit } from "@handlers/alldebridFormSubmit";
+import { handleAlldebridFormSubmit } from "@controllers/alldebridFormSubmit";
 import { alldebridForm } from "./components/wrapper/alldebridForm/alldebridForm";
-import { handleAlldebridEvent } from "@handlers/alldebridEvent";
+import { handleAlldebridEvent } from "@controllers/alldebridEvent";
 import { ALLDEBRID_EVENT_NAME } from "@model/constants";
 
 export function bindEvents() {

@@ -31,8 +31,8 @@
       "@components/*": [
         "components/*"
       ],
-      "@handlers/*": [
-        "handlers/*"
+      "@controllers/*": [
+        "controllers/*"
       ],
       "@model/*": [
         "model/*"

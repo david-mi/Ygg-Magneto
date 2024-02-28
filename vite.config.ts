@@ -9,7 +9,7 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
       '@views': resolve(__dirname, './src/views'),
       '@model': resolve(__dirname, './src/model'),
-      '@handlers': resolve(__dirname, './src/handlers'),
+      '@controllers': resolve(__dirname, './src/controllers'),
       '@components': resolve(__dirname, './src/views/components'),
     },
   },
