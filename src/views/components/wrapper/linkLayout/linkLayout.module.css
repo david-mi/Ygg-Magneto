@@ -1,4 +1,4 @@
-.availableLinkElement {
+.linkLayout {
   color: var(--color-main) !important;
   border-color: var(--color-main) !important;
   display: flex;
@@ -13,5 +13,9 @@
 
   img {
     height: 12px;
+  }
+
+  span::before {
+    font-size: 1rem;
   }
 }

@@ -1,10 +1,6 @@
-import styles from "./availableLink.module.css"
-import alldebridFavicon from "./alldebrid_favicon.png"
+import { createLinkLayout } from "../linkLayout/linkLayout"
 
-export const availableLinkElement = document.createElement("a")
-availableLinkElement.textContent = "Télécharger via magnet"
-availableLinkElement.classList.add("butt", "pulse", styles.availableLinkElement)
-
-const alldebridLogo = document.createElement("img")
-alldebridLogo.src = alldebridFavicon
-availableLinkElement.append(alldebridLogo)
+export const availableLinkElement = createLinkLayout({
+  text: "Télécharger via magnet",
+  pulseAnimation: false
+})
