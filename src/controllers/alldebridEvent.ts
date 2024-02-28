@@ -7,7 +7,10 @@ import { getDownloadLink } from "@model/getDownloadLink"
 import { onViewChange } from "@views/onViewChange"
 import { handleErrors } from "./errors"
 
-type AlldebridEventDetails = "PENDING" | "COMPLETE_FORM" | "DONE"
+type AlldebridEventDetails = {
+  step: "PENDING" | "COMPLETE_FORM" | "DONE"
+  errorMessage?: string
+}
 
 export function dispatchAlldebridEvent(detail: AlldebridEventDetails) {
   const alldebridEvent = new CustomEvent<AlldebridEventDetails>(ALLDEBRID_EVENT_NAME, { detail })
@@ -19,9 +22,9 @@ export async function handleAlldebridEvent(event: Event) {
   if (event instanceof CustomEvent) {
     const detail = event.detail as AlldebridEventDetails
 
-    switch (detail) {
+    switch (detail.step) {
       case "COMPLETE_FORM": {
-        onViewChange.form()
+        onViewChange.form(detail.errorMessage)
         break
       }
       case "PENDING": {
@@ -32,7 +35,7 @@ export async function handleAlldebridEvent(event: Event) {
           const unlockedUrl = await getUnlockedUrl(magnetId)
           Store.ALLDEBRID_DOWNLOAD_LINK = await getDownloadLink(unlockedUrl)
 
-          dispatchAlldebridEvent("DONE")
+          dispatchAlldebridEvent({ step: "DONE" })
         } catch (error) {
           handleErrors(error)
         }

@@ -1,9 +1,17 @@
 import { getAlldebridRequestUrl } from "./utils/getAlldebridRequestUrl";
 
 interface AlldebridUnlockResponseData {
-  status: string,
+  status: "success",
   data: {
     link: string
+  }
+}
+
+interface AlldebridUnlockResponseDataError {
+  status: "error",
+  error: {
+    code: string,
+    message: string
   }
 }
 
@@ -11,9 +19,11 @@ export async function getDownloadLink(unlockedUrl: string): Promise<string> {
   const alldebridUnlockUrl = getAlldebridRequestUrl().unlock(unlockedUrl)
 
   const response = await fetch(alldebridUnlockUrl)
-  const { data }: AlldebridUnlockResponseData = await response.json()
+  const apiData: AlldebridUnlockResponseData | AlldebridUnlockResponseDataError = await response.json()
 
-  console.log(data)
+  if (apiData.status === "error") {
+    throw new Error(apiData.error.message)
+  }
 
-  return data.link
+  return apiData.data.link
 }

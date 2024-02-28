@@ -11,12 +11,21 @@
       padding-inline: var(--spacing);
       border-top-left-radius: 50px;
       border-bottom-left-radius: 50px;
+
+      &.error::placeholder {
+        color: red;
+        opacity: 0.8;
+      }
     }
 
     &::placeholder {
       opacity: 0.5;
       font-style: italic;
       font-size: 0.9rem;
+    }
+
+    &:placeholder-shown {
+      text-overflow: ellipsis;
     }
 
     &[type="submit"] {

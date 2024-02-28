@@ -2,12 +2,13 @@ import { ERROR_MESSAGES } from "@model/constants"
 import { dispatchAlldebridEvent } from "./alldebridEvent"
 
 export function handleErrors(error: any) {
+  console.error(error)
+
   if (error instanceof Error) {
-    console.error(error)
     switch (error.message) {
-      case ERROR_MESSAGES.INVALID_TOKEN: {
+      case ERROR_MESSAGES.INVALID_API_KEY: {
         console.log("Invalid Token")
-        dispatchAlldebridEvent("COMPLETE_FORM")
+        dispatchAlldebridEvent({ step: "COMPLETE_FORM", errorMessage: "Clé API invalide" })
         break
       }
     }

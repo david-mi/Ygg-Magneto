@@ -11,5 +11,5 @@ export function handleAlldebridFormSubmit(event: SubmitEvent) {
 
   input.value = ""
 
-  dispatchAlldebridEvent("PENDING")
+  dispatchAlldebridEvent({ step: "PENDING" })
 }
