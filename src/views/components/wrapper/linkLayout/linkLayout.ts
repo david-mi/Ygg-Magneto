@@ -11,13 +11,15 @@ interface LinkLayoutProps {
 
 export function createLinkLayout({ text, children, pulseAnimation, className, newTab = false }: LinkLayoutProps) {
   const linkLayout = document.createElement("a")
-  linkLayout.textContent = text
   linkLayout.classList.add(
     "butt",
     ...pulseAnimation ? ["pulse"] : [],
     styles.linkLayout,
     ...className ? [className] : []
   );
+
+  const linkTextElement = document.createElement("span")
+  linkTextElement.textContent = text
 
   if (newTab) {
     linkLayout.setAttribute("target", "_blank")
@@ -26,7 +28,7 @@ export function createLinkLayout({ text, children, pulseAnimation, className, ne
   const alldebridLogo = document.createElement("img")
   alldebridLogo.src = alldebridFavicon
 
-  linkLayout.append(alldebridLogo)
+  linkLayout.append(alldebridLogo, linkTextElement)
   if (children) {
     linkLayout.append(children)
   }

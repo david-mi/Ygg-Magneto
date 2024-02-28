@@ -6,15 +6,16 @@
   gap: 0.5rem;
   max-height: 30px;
   position: relative;
-  top: -2px !important;
+  position: relative;
+  top: 3px !important;
 
   &:hover {
     background-color: var(--color-main) !important;
     color: var(--color-second) !important;
   }
 
-  img {
-    height: 12px;
+  span {
+    line-height: 1rem;
   }
 
   span::before {

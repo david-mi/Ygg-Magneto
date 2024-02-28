@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  line-height: 1rem;
   font-weight: bold;
   padding: calc(var(--spacing) / 2) var(--spacing);
 }

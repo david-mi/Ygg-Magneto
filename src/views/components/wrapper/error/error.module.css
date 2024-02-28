@@ -5,7 +5,11 @@
   align-items: center;
   gap: 0.5rem;
   padding: calc(var(--spacing) / 2) var(--spacing);
-  font-weight: 500;
+  font-weight: bold;
+  position: relative;
+  top: 2px;
+
+  line-height: 1rem;
 
   span::before {
     font-size: 1rem;
