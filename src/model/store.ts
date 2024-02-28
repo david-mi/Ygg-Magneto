@@ -3,6 +3,8 @@ import { LOCAL_STORAGE_KEYS } from "./constants"
 export class Store {
   static ALLDEBRID_API_KEY: string | null
   static TORRENT_MAGNET: string = ""
+  static ALLDEBRID_MAGNET_URL = "https://api.alldebrid.com/v4/"
+  static ALLDEBRID_DOWNLOAD_LINK = ""
 
   static setApiKey(apiKey: string) {
     this.ALLDEBRID_API_KEY = apiKey
