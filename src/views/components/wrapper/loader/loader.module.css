@@ -1,6 +1,8 @@
 .loader {
+  background-color: var(--color-main-light);
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-weight: bold;
+  padding: calc(var(--spacing) / 2) var(--spacing);
 }
