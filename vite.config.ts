@@ -17,7 +17,7 @@ export default defineConfig({
     monkey({
       entry: 'src/main.ts',
       userscript: {
-        version: "1.0.0",
+        version: "1.0.1",
         name: "YGG - MagnetoDebrid",
         icon: 'https://vitejs.dev/logo.svg',
         namespace: 'npm/vite-plugin-monkey',
