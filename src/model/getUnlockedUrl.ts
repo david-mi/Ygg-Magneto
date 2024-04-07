@@ -5,10 +5,6 @@ interface FileInfos {
   link: string
 }
 
-type VideoExtension = "avi" | "mkv" | "mp4" | "mov" | "wmv" | "flv" | "webm" | "m4v";
-
-const videoExtensions: VideoExtension[] = ["avi", "mkv", "mp4", "mov", "wmv", "flv", "webm", "m4v"]
-
 interface AlldebridStatusResponseData {
   status: "success",
   data: {
@@ -28,16 +24,16 @@ interface AlldebridUploadResponseDataError {
 }
 
 
-function retrieveVideoUnlockedUrl(filesInfos: FileInfos[]) {
-  const foundVideoFile = filesInfos.find(({ filename }) => {
-    return videoExtensions.some((videoExtension) => filename.endsWith(videoExtension))
+function retrieveFileUnlockedUrl(filesInfos: FileInfos[]) {
+  const foundFile = filesInfos.find(({ filename }) => {
+    return filename.endsWith(".nfo") === false
   })
 
-  if (!foundVideoFile) {
-    throw new Error("No video file found from magnets")
+  if (!foundFile) {
+    throw new Error("No file found from magnets")
   }
 
-  return foundVideoFile.link
+  return foundFile.link
 }
 
 export async function getUnlockedUrl(magnetId: string): Promise<string> {
@@ -50,5 +46,5 @@ export async function getUnlockedUrl(magnetId: string): Promise<string> {
     throw new Error(apiData.error.message)
   }
 
-  return retrieveVideoUnlockedUrl(apiData.data.magnets.links)
+  return retrieveFileUnlockedUrl(apiData.data.magnets.links)
 }
