@@ -5,7 +5,7 @@ export class Store {
   static TORRENT_MAGNET: string = ""
   static ALLDEBRID_MAGNET_API_URL = "https://api.alldebrid.com/v4/"
   static ALLDEBRID_MAGNET_URL = "https://alldebrid.fr/magnets/"
-  static ALLDEBRID_DOWNLOAD_LINK = ""
+  static ALLDEBRID_DOWNLOAD_LINKS: string = ""
 
   static setApiKey(apiKey: string) {
     this.ALLDEBRID_API_KEY = apiKey

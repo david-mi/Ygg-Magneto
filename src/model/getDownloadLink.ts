@@ -24,6 +24,6 @@ export async function getDownloadLink(unlockedUrl: string): Promise<string> {
   if (apiData.status === "error") {
     throw new Error(apiData.error.message)
   }
-
+  console.log(apiData.data.link)
   return apiData.data.link
 }

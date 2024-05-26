@@ -33,7 +33,7 @@ export async function handleAlldebridEvent(event: Event) {
         try {
           const magnetId = await getMagnetId()
           const unlockedUrl = await getUnlockedUrl(magnetId)
-          Store.ALLDEBRID_DOWNLOAD_LINK = await getDownloadLink(unlockedUrl)
+          Store.ALLDEBRID_DOWNLOAD_LINKS = await getDownloadLink(unlockedUrl)
 
           dispatchAlldebridEvent({ step: "AVAILABLE" })
         } catch (error) {
@@ -42,7 +42,7 @@ export async function handleAlldebridEvent(event: Event) {
         break;
       }
       case "AVAILABLE": {
-        onViewChange.available(Store.ALLDEBRID_DOWNLOAD_LINK)
+        onViewChange.available(Store.ALLDEBRID_DOWNLOAD_LINKS)
         break;
       }
       case "PROCESSING": {

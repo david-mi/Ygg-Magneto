@@ -17,11 +17,13 @@ export default defineConfig({
     monkey({
       entry: 'src/main.ts',
       userscript: {
-        version: "1.0.1",
+        version: "1.0.2",
         name: "YGG - MagnetoDebrid",
         icon: 'https://vitejs.dev/logo.svg',
         namespace: 'npm/vite-plugin-monkey',
-        match: ['https://www3.yggtorrent.qa/torrent/*'],
+        match: ["https://www.ygg.re/*"],
+        exclude: ["https://www.ygg.re/forum*"],
+        author: "david-mi"
       },
     }),
   ],
