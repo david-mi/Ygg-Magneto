@@ -1,0 +1,1 @@
+export const ALLDEBRID_FAVICON = "https://raw.githubusercontent.com/david-mi/Ygg-Magneto/main/public/alldebrid_favicon.png"

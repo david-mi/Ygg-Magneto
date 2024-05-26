@@ -25,6 +25,9 @@
     "skipLibCheck": true,
     "baseUrl": "./src",
     "paths": {
+      "@/*": [
+        "./*"
+      ],
       "@views/*": [
         "views/*"
       ],
@@ -36,6 +39,9 @@
       ],
       "@model/*": [
         "model/*"
+      ],
+      "@constants/*": [
+        "constants/*"
       ],
     }
   },

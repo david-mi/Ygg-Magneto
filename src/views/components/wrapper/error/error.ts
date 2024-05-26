@@ -1,6 +1,6 @@
-import alldebridFavicon from "/alldebrid_favicon.png"
 import { retryButton } from "./retryButton/retryButton"
 import styles from "./error.module.css"
+import { ALLDEBRID_FAVICON } from "@/constants"
 
 export const errorElement = document.createElement("span")
 errorElement.classList.add(styles.error)
@@ -8,7 +8,7 @@ errorElement.classList.add(styles.error)
 const errorTextElement = document.createElement("span")
 
 const alldebridLogo = document.createElement("img")
-alldebridLogo.src = alldebridFavicon
+alldebridLogo.src = ALLDEBRID_FAVICON
 
 const externalLinkIcon = document.createElement("span")
 externalLinkIcon.classList.add("ico_warning")

@@ -1,6 +1,5 @@
-import alldebridFavicon from "/alldebrid_favicon.png"
 import styles from "./linkLayout.module.css"
-
+import { ALLDEBRID_FAVICON } from "@/constants"
 interface LinkLayoutProps {
   text: string,
   pulseAnimation: boolean,
@@ -26,7 +25,7 @@ export function createLinkLayout({ text, children, pulseAnimation, className, ne
   }
 
   const alldebridLogo = document.createElement("img")
-  alldebridLogo.src = alldebridFavicon
+  alldebridLogo.src = ALLDEBRID_FAVICON
 
   linkLayout.append(alldebridLogo, linkTextElement)
   if (children) {

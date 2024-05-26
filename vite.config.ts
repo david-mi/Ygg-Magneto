@@ -6,18 +6,19 @@ import { resolve } from 'path'
 export default defineConfig({
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src'),
-      '@views': resolve(__dirname, './src/views'),
-      '@model': resolve(__dirname, './src/model'),
-      '@controllers': resolve(__dirname, './src/controllers'),
-      '@components': resolve(__dirname, './src/views/components'),
+      '@': resolve(__dirname, './src/'),
+      '@views': resolve(__dirname, './src/views/'),
+      '@model': resolve(__dirname, './src/model/'),
+      '@controllers': resolve(__dirname, './src/controllers/'),
+      '@components': resolve(__dirname, './src/views/components/'),
+      '@constants': resolve(__dirname, './src/constants/'),
     },
   },
   plugins: [
     monkey({
       entry: 'src/main.ts',
       userscript: {
-        version: "1.0.2",
+        version: "1.0.3",
         name: "YGG - MagnetoDebrid",
         icon: 'https://vitejs.dev/logo.svg',
         namespace: 'npm/vite-plugin-monkey',
