@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import monkey from 'vite-plugin-monkey';
-import { resolve } from 'path'
+import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -18,14 +18,16 @@ export default defineConfig({
     monkey({
       entry: 'src/main.ts',
       userscript: {
-        version: "1.0.3",
+        version: "1.0.4",
         name: "YGG - MagnetoDebrid",
-        icon: 'https://vitejs.dev/logo.svg',
+        icon: "https://cdn.allthepics.net/images/2025/08/14/favicon.png",
         namespace: 'npm/vite-plugin-monkey',
-        match: ["https://www.ygg.re/*"],
-        exclude: ["https://www.ygg.re/forum*"],
+        match: ["https://www.yggtorrent.top/torrent*"],
         author: "david-mi"
       },
+      server: {
+        prefix: "[DEV] YGG - MagnetoDebrid"
+      }
     }),
   ],
 });
