@@ -18,11 +18,11 @@ export default defineConfig({
     monkey({
       entry: 'src/main.ts',
       userscript: {
-        version: "1.0.4",
+        version: "1.0.5",
         name: "YGG - MagnetoDebrid",
         icon: "https://cdn.allthepics.net/images/2025/08/14/favicon.png",
         namespace: 'npm/vite-plugin-monkey',
-        match: ["https://www.yggtorrent.top/torrent*"],
+        match: ["https://www.yggtorrent.org/torrent*"],
         author: "david-mi"
       },
       server: {
